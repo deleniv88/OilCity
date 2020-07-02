@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@color/ColorGrey"
+    android:id="@+id/event_layout"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:id="@+id/event_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/event_rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="4dp"
+        android:elevation="10dp">
+
+        <TextView
+            android:id="@+id/restoraunt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Name of Restoraunt"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="normal"></TextView>
+
+        <TextView
+            android:id="@+id/restoraunt_phone"
+            android:layout_below="@+id/restoraunt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Phone of Restoraunt"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="15sp"
+            android:textStyle="normal"></TextView>
+
+<!--        <RatingBar-->
+<!--            android:layout_below="@+id/restoraunt_phone"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:id="@+id/ratingBarRest"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:isIndicator="true"-->
+<!--            android:max="5"-->
+<!--            android:rating="0"-->
+<!--            style="?android:attr/ratingBarStyleSmall"></RatingBar>-->
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/restoraunt_image"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"></de.hdodenhof.circleimageview.CircleImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img"></ImageView>
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img1"></ImageView>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/event_rel"
+        android:id="@+id/restoraunt_text_bottom"
+        android:text="Restoraunt text"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+
+<!--    <ImageView-->
+<!--        android:layout_below="@+id/event_rel"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:id="@+id/image_share_restoraunt"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_share_black_24dp"-->
+<!--        android:tint="@android:color/white"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:backgroundTint="@color/ColorTra0"/>-->
+
+
+
+</RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+

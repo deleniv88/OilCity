@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="18dp"
+    android:layout_marginRight="18dp"
+    app:cardCornerRadius="20dp"
+    app:cardBackgroundColor="@color/ColorGrey"
+    android:id="@+id/event_layout"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:id="@+id/event_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/event_rel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:elevation="10dp">
+
+            <TextView
+                android:id="@+id/restoraunt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="Name of Restoraunt"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="normal"></TextView>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/restoraunt_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="90dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"></de.hdodenhof.circleimageview.CircleImageView>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/event_rel"
+            android:id="@+id/restoraunt_text_bottom"
+            android:text="Restoraunt text"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+<!--        <ImageView-->
+<!--            android:layout_below="@+id/event_rel"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:id="@+id/image_share_restoraunt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_share_black_24dp"-->
+<!--            android:tint="@android:color/white"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:backgroundTint="@color/ColorTra0"/>-->
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+

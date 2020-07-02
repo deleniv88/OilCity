@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="18dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="14dp"
+    app:cardBackgroundColor="@color/ColorGrey">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:text="User Name"
+                android:textStyle="bold">
+            </TextView>
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBarComment"
+                android:rating="3"
+                android:layout_marginLeft="10dp"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_gravity="center_vertical">
+            </RatingBar>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtComment"
+            android:textColor="@android:color/white"
+            android:text="Comment"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

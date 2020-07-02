@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/myBackground"
+    android:theme="@style/AppTheme.NoActionBar"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/boryslavgerb"
+        android:id="@+id/mainGerb">
+    </ImageView>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/mainGerb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/line1"
+        >
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:drawableEnd="@drawable/ic_phone_iphone_black_24dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Емейл"
+            android:id="@+id/edtEmail"
+            android:textColorHint="@android:color/black"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:inputType="textEmailAddress"
+            app:met_baseColor="@android:color/black"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@android:color/black"
+            app:met_singleLineEllipsis="true">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пароль"
+            android:id="@+id/edtPassword"
+            android:textColorHint="@android:color/black"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:inputType="textEmailSubject"
+            android:drawableEnd="@drawable/ic_lock_black_24dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            app:met_baseColor="@android:color/black"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@android:color/black"
+            app:met_singleLineEllipsis="true">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            >
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnReg"
+                android:text="Зареєструватись"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_button"
+                android:layout_margin="10dp">
+            </Button>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSingIn"
+                android:text="Увійти"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_button"
+                android:layout_margin="8dp">
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textColor="#ffffff"
+        android:text=""
+        android:textSize="18sp"
+        android:layout_below="@+id/line1"
+        android:layout_centerHorizontal="true">
+    </TextView>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/com_facebook_button_icon"
+        android:backgroundTint="@color/com_facebook_blue" />
+
+    <Button
+        android:layout_marginLeft="5dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/googleg_standard_color_18"
+        android:id="@+id/btnGoogle"
+        android:layout_toRightOf="@+id/login_button" />
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_below="@+id/txtForgot"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:weightSum="2"-->
+    <!--        android:gravity="center_horizontal">-->
+
+    <!--        <Button-->
+    <!--            android:layout_marginRight="5dp"-->
+    <!--            android:id="@+id/login_button"-->
+    <!--            android:background="@drawable/com_facebook_button_icon"-->
+    <!--            android:backgroundTint="@color/com_facebook_blue"-->
+    <!--            android:layout_width="40dp"-->
+    <!--            android:layout_height="40dp"-->
+    <!--            android:layout_centerHorizontal="true" />-->
+
+    <!--        <Button-->
+    <!--            android:layout_marginLeft="5dp"-->
+    <!--            android:layout_width="40dp"-->
+    <!--            android:layout_height="40dp"-->
+    <!--            android:background="@drawable/googleg_standard_color_18"-->
+    <!--            android:id="@+id/btnGoogle"-->
+    <!--            android:layout_toRightOf="@+id/login_button" />-->
+    <!--    </LinearLayout>-->
+
+</RelativeLayout>

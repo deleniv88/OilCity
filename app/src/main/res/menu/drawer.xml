@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_black_24dp"
+            android:title="Меню" />
+        <item
+            android:id="@+id/nav_admin"
+            android:icon="@drawable/city_hall"
+            android:title="Держ.заклади та ін." />
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/folded_newspaper"
+            android:title="Новини" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/calendar"
+            android:title="Події" />
+        <item
+            android:id="@+id/nav_relax"
+            android:icon="@drawable/smile"
+            android:title="Дозвілля" />
+        <item
+            android:id="@+id/nav_bus"
+            android:icon="@drawable/bus"
+            android:title="Транспорт" />
+        <item
+            android:id="@+id/nav_flat"
+            android:icon="@drawable/flat"
+            android:title="Комуналка" />
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/ic_exit"
+            android:title="Вихід" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Поділитися" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Зворотній зв’язок" />
+    </group>
+</menu>
+
+
+
+

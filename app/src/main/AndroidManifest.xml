@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="oil.city">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".Update.App"
+        android:allowBackup="true"
+        android:icon="@drawable/round632"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/round632"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Relax.GoogleMapTourism"></activity>
+        <activity android:name=".ShowCommentRestoraunt" />
+        <activity android:name=".Relax.RestorauntDetail" />
+        <activity android:name=".Flat.Domofon" />
+        <activity android:name=".Flat.Beskyd" />
+        <activity android:name=".Flat.Ecosvit" />
+        <activity android:name=".Administrations.Medicine.HospitalDetail" />
+        <activity android:name=".Administrations.Medicine.Doctors" />
+        <activity android:name=".Relax.HotelActivity" />
+        <activity android:name=".Flat.WebVododar" />
+        <activity android:name=".Flat.WebLvivGaz" />
+        <activity android:name=".Flat.WebLvivEnergo" />
+        <activity android:name=".Relax.SkiActivity" />
+        <activity android:name=".Administrations.Company.CompanyDetail" />
+        <activity android:name=".Administrations.Company.Company" />
+        <activity android:name=".Administrations.Culture.CultureDetail" />
+        <activity android:name=".Administrations.Culture.Culture" />
+        <activity android:name=".Administrations.Sport.SportAdminsDetail" />
+        <activity android:name=".Administrations.Sport.SportAdmins" />
+        <activity android:name=".Administrations.Education.EducationProfDetail" />
+        <activity android:name=".Administrations.Education.EducationProf" />
+        <activity android:name=".Administrations.Education.EducationOtherDetail" />
+        <activity android:name=".Administrations.Education.EducationOther" />
+        <activity android:name=".Administrations.Education.EducationDetailDNZ" />
+        <activity android:name=".Administrations.Education.EducationDNZ" />
+        <activity android:name=".Administrations.Education.EducationSchoolDetail" />
+        <activity android:name=".Administrations.Education.EducationSchool" />
+        <activity android:name=".Flat.Flat" />
+        <activity android:name=".Administrations.Medicine.Medicine" />
+        <activity android:name=".Administrations.Buildings" />
+
+        <service android:name=".MyMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Relax.SportActivity" />
+        <activity android:name=".Relax.RestorauntActivity" />
+        <activity android:name=".Relax.RelaxActivity" />
+        <activity android:name=".Administrations.Government.GovernmentDetail" />
+        <activity android:name=".Register" />
+        <activity android:name=".Administrations.Government.Government" />
+        <activity android:name=".Events.EventDetail" />
+        <activity android:name=".ShowCommentEvent" />
+        <activity android:name=".VerifyPhone" />
+        <activity android:name=".Home" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".WebView" />
+        <activity android:name=".News.NewsDetail" />
+        <activity android:name=".Events.EventActivity" />
+        <activity android:name=".Bus.Bus" />
+        <activity android:name=".News.NewsActivity" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider233808414483590"
+            android:exported="true" />
+    </application>
+
+</manifest>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/myBackground"
+    android:theme="@style/AppTheme.NoActionBar">
+
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:src="@drawable/boryslavgerb"
+        android:id="@+id/mainGerb">
+    </ImageView>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:background="@drawable/backg_rec"
+        android:layout_below="@+id/mainGerb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/line1">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:drawableEnd="@drawable/ic_mail_grey"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ел. пошта"
+            android:id="@+id/edtEmail"
+            android:textColorHint="@android:color/white"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:inputType="textEmailAddress"
+            app:met_baseColor="@android:color/black"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@android:color/black"
+            app:met_singleLineEllipsis="true">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пароль"
+            android:id="@+id/edtPassword"
+            android:textColorHint="@android:color/black"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:inputType="textEmailSubject"
+            android:drawableEnd="@drawable/ic_lock_grey"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            app:met_baseColor="@android:color/black"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@android:color/black"
+            app:met_singleLineEllipsis="true">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lineartForgot"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="0dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnSingIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button"
+            android:text="Увійти"
+            android:textColor="@android:color/white"></Button>
+
+        <!--        <Button-->
+        <!--            android:id="@+id/login_button"-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:layout_marginLeft="25dp"-->
+        <!--            android:layout_marginRight="5dp"-->
+        <!--            android:background="@drawable/com_facebook_button_icon"-->
+        <!--            android:backgroundTint="@color/com_facebook_blue" />-->
+
+        <LinearLayout
+            android:id="@+id/btnGoogle"
+            android:background="@drawable/backg_rec"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp">
+
+            <Button
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/googleg_standard_color_18" />
+
+            <TextView
+                android:layout_marginRight="5dp"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Увійти за допомогою"></TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:id="@+id/lineartForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1">
+
+        <com.rey.material.widget.CheckBox
+            android:layout_below="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            style="@style/Material.Drawable.CheckBox"
+            android:id="@+id/ckbRemember"
+            android:text="Запам’ятати мене"
+            android:textColor="@android:color/white"
+            app:cbd_strokeColor="@android:color/white"
+            app:cbd_tickColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            >
+        </com.rey.material.widget.CheckBox>
+
+        <!--    <TextView-->
+        <!--            android:id="@+id/txtForgot"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:layout_marginRight="10dp"-->
+        <!--            android:textColor="#ffffff"-->
+        <!--            android:text="Запам’ятати мене"-->
+        <!--            android:textSize="16sp"-->
+        <!--            android:layout_centerHorizontal="true">-->
+        <!--        </TextView>-->
+    </LinearLayout>
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/singin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Немає облікового запису?"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp">
+    </TextView>
+
+    <!--    <Button-->
+    <!--        android:layout_below="@+id/txtForgot"-->
+    <!--        android:layout_marginRight="5dp"-->
+    <!--        android:id="@+id/login_button"-->
+    <!--        android:background="@drawable/com_facebook_button_icon"-->
+    <!--        android:backgroundTint="@color/com_facebook_blue"-->
+    <!--        android:layout_width="40dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_centerHorizontal="true" />-->
+
+    <!--    <Button-->
+    <!--        android:layout_below="@+id/txtForgot"-->
+    <!--        android:layout_marginLeft="5dp"-->
+    <!--        android:layout_width="40dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:background="@drawable/googleg_standard_color_18"-->
+    <!--        android:id="@+id/btnGoogle"-->
+    <!--        android:layout_toRightOf="@+id/login_button" />-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_below="@+id/singin"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:weightSum="2"-->
+    <!--            android:gravity="center_horizontal">-->
+
+    <!--            <Button-->
+    <!--                android:layout_marginRight="5dp"-->
+    <!--                android:id="@+id/login_button"-->
+    <!--                android:background="@drawable/com_facebook_button_icon"-->
+    <!--                android:backgroundTint="@color/com_facebook_blue"-->
+    <!--                android:layout_width="40dp"-->
+    <!--                android:layout_height="40dp"-->
+    <!--                android:layout_centerHorizontal="true" />-->
+
+    <!--            <Button-->
+    <!--                android:layout_marginLeft="5dp"-->
+    <!--                android:layout_width="40dp"-->
+    <!--                android:layout_height="40dp"-->
+    <!--                android:background="@drawable/googleg_standard_color_18"-->
+    <!--                android:id="@+id/btnGoogle"-->
+    <!--                android:layout_toRightOf="@+id/login_button" />-->
+    <!--        </LinearLayout>-->
+
+</RelativeLayout>

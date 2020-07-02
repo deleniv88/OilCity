@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="SingInButton">#39796b</color>
+    <color name="SingUpButton">#A9d440</color>
+
+    <color name="overlayBackground">#76333639</color>
+    <color name="myBackground">#0b2535</color>
+    <color name="overlayActionBar">#00574B</color>
+
+    <color name="ColorTra">#66000000</color>
+    <color name="ColorTra0">#00000000</color>
+    <color name="ColorGrey">#b8b8b8</color>
+</resources>

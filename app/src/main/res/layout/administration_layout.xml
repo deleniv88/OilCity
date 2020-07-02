@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:id="@+id/medenychi_layout"
+    android:background="@drawable/bg_round_without_color"
+    android:backgroundTint="@color/ColorGrey"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/admin_image"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"></ImageView>
+
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/admin_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/admin_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:text="Name of Admin"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"></TextView>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/admin_icon_time"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/admin_icon_loc"-->
+<!--            android:layout_marginLeft="8dp"-->
+<!--            android:layout_marginRight="8dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:layout_toRightOf="@id/admin_image"-->
+<!--            android:src="@drawable/ic_time"></ImageView>-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/admin_hour"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/admin_adress"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_toRightOf="@id/admin_icon_time"-->
+<!--            android:textStyle="italic"-->
+<!--            android:text="Hours of work"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="15sp"></TextView>-->
+
+        <ImageView
+            android:id="@+id/admin_icon_phone"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/admin_name"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/phone"></ImageView>
+
+        <TextView
+            android:textStyle="normal"
+            android:id="@+id/admin_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/admin_name"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/admin_icon_phone"
+            android:text="Phone"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"></TextView>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/admin_icon_loc"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/admin_name"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:layout_toRightOf="@id/admin_image"-->
+<!--            android:src="@drawable/ic_map"></ImageView>-->
+
+<!--        <TextView-->
+<!--            android:textStyle="italic"-->
+<!--            android:id="@+id/admin_adress"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/admin_name"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_toRightOf="@id/admin_icon_loc"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Adress of Admin"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="15sp"></TextView>-->
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/myBackground"
+    tools:context=".Register">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/avatarPhoto"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:src="@drawable/boryslavgerb"
+            android:layout_centerHorizontal="true">
+        </ImageView>
+
+
+        <LinearLayout
+            android:layout_margin="25dp"
+            android:background="@drawable/backg_rec"
+            android:orientation="vertical"
+            android:id="@+id/lineareAfterPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_below="@+id/avatarPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ім’я"
+                android:id="@+id/name"
+                android:textColorHint="@android:color/black"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:inputType="textEmailSubject"
+                android:drawableEnd="@drawable/ic_person_grey"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true">
+            </com.rengwuxian.materialedittext.MaterialEditText>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_below="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ел. пошта"
+                android:id="@+id/email"
+                android:textColorHint="@android:color/black"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:inputType="textEmailSubject"
+                android:drawableEnd="@drawable/ic_mail_grey"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true">
+            </com.rengwuxian.materialedittext.MaterialEditText>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_below="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Пароль"
+                android:id="@+id/pass"
+                android:textColorHint="@android:color/black"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:inputType="textEmailSubject"
+                android:drawableEnd="@drawable/ic_lock_grey"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true">
+            </com.rengwuxian.materialedittext.MaterialEditText>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/confirm"
+                android:layout_below="@+id/pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Підтвердити пароль"
+                android:textColorHint="@android:color/black"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:inputType="textEmailSubject"
+                android:drawableEnd="@drawable/ic_lock_grey"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true">
+            </com.rengwuxian.materialedittext.MaterialEditText>
+
+        </LinearLayout>
+
+        <Button
+            android:padding="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_button"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/confirm"
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Зареєструватись">
+        </Button>
+
+    </LinearLayout>
+
+</RelativeLayout>

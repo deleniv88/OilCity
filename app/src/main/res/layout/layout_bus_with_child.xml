@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/darker_gray"
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="15dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:layout_alignParentEnd="true">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:backgroundTint="@android:color/white">
+            </View>
+        </RelativeLayout>
+
+    <TextView
+        android:layout_marginLeft="4dp"
+            android:layout_toLeftOf="@+id/button"
+            android:id="@+id/txt_bus_item"
+            android:padding="8dp"
+            android:text="Bus with child"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    <com.github.aakira.expandablelayout.ExpandableLinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandableLayout"
+        android:layout_below="@+id/txt_bus_item"
+        android:orientation="vertical"
+        app:ael_duration="400"
+        app:ael_expanded="true"
+        app:ael_interpolator="bounce">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_bus_child_item3"
+                android:padding="8dp"
+                android:text="Bus with child"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        <TextView
+            android:layout_below="@id/txt_bus_child_item3"
+            android:id="@+id/txt_bus_child_item"
+            android:gravity="left"
+            android:padding="8dp"
+            android:text="Bus without child"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:layout_below="@+id/txt_bus_child_item"
+            android:id="@+id/txt_bus_child_item2"
+            android:padding="8dp"
+            android:text="Bus with child"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        </RelativeLayout>
+    </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

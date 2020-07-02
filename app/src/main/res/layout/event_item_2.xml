@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    app:cardBackgroundColor="@android:color/darker_gray"
+    android:id="@+id/event_layout">
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:id="@+id/event_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_gravity="center"
+            android:id="@+id/event_image"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <View
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:layout_width="2dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@+id/PhotoAdmin"
+            android:background="@android:color/black">
+        </View>
+
+        <RelativeLayout
+            android:id="@+id/event_rel"
+            android:layout_marginRight="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp">
+
+            <TextView
+                android:id="@+id/event_name"
+                android:text="Name of Event"
+                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/event_adress"
+                android:layout_marginRight="10dp"
+                android:id="@+id/price"
+                android:text="Price of Event"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/event_date"
+                android:text="Date of Event"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_below="@+id/event_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/event_time"
+                android:text="Time of Event"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_below="@+id/event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/event_adress"
+                android:text="Adress of Event"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_below="@+id/event_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <ImageView
+            android:id="@+id/image_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share_black_24dp"
+            android:tint="@android:color/white"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/ColorTra0"/>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+

@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "229778742697",
+    "firebase_url": "https://oilcity-b1256.firebaseio.com",
+    "project_id": "oilcity-b1256",
+    "storage_bucket": "oilcity-b1256.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229778742697:android:71acc1a8c3192b65bd78b8",
+        "android_client_info": {
+          "package_name": "oil.city"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229778742697-e1s46go2sfuqtpghsg7eg74smq1pddro.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "oil.city",
+            "certificate_hash": "6e9dec8959bc922f335395369e4d04c10c257a48"
+          }
+        },
+        {
+          "client_id": "229778742697-9caf9ecvmq19qk1pl10paugis8j5fjnf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "oil.city",
+            "certificate_hash": "451e97f9468a41825882e1f77fc68fc2d228600d"
+          }
+        },
+        {
+          "client_id": "229778742697-ui9thcfae77jj6r5o371f0d1mtjftgst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_aBMKchNmNJX0JHtcaI-QjCYLMYnh8hM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229778742697-ui9thcfae77jj6r5o371f0d1mtjftgst.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

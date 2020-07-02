@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/myBackground">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:openDrawer="start">
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:id="@+id/gerb"
+            android:layout_centerHorizontal="true"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/boryslavgerb">
+        </ImageView>
+
+        <ScrollView
+            android:id="@+id/scrollBuild"
+       android:layout_marginTop="110dp"
+       android:layout_marginLeft="25dp"
+       android:layout_marginRight="25dp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+       <RelativeLayout
+           android:background="@drawable/bg_round_without_color"
+           android:backgroundTint="@color/ColorGrey"
+           android:padding="5dp"
+           android:id="@+id/buil_government"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:padding="5dp"
+               android:layout_gravity="center"
+               android:id="@+id/governement_image"
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:layout_marginLeft="10dp"
+               android:scaleType="centerCrop"
+               android:src="@drawable/city_hall">
+           </ImageView>
+
+           <TextView
+               android:layout_toRightOf="@+id/governement_image"
+               android:layout_centerInParent="true"
+               android:id="@+id/building_name"
+               android:text="Державні установи"
+               android:textColor="@android:color/white"
+               android:textSize="15sp"
+               android:textStyle="normal"
+               android:layout_marginLeft="8dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+           </TextView>
+       </RelativeLayout>
+
+           <RelativeLayout
+               android:id="@+id/bild_education"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="10dp"
+               android:background="@drawable/bg_round_without_color"
+               android:backgroundTint="@color/ColorGrey"
+               android:padding="5dp">
+
+               <RelativeLayout
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:layout_alignParentEnd="true"
+                   android:layout_gravity="right">
+
+                   <Button
+                       android:id="@+id/buttonEducation"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                       android:backgroundTint="@android:color/white"></Button>
+               </RelativeLayout>
+
+               <ImageView
+                   android:id="@+id/education"
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:layout_gravity="center"
+                   android:layout_marginLeft="10dp"
+                   android:padding="5dp"
+                   android:scaleType="centerCrop"
+                   android:src="@drawable/education1"></ImageView>
+
+
+               <TextView
+                   android:id="@+id/building_name1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="8dp"
+                   android:layout_marginTop="15dp"
+                   android:layout_toRightOf="@+id/education"
+                   android:text="Заклади освіти"
+                   android:textColor="@android:color/white"
+                   android:textSize="15sp"
+                   android:textStyle="normal"></TextView>
+
+               <RelativeLayout
+                   android:id="@+id/expand"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@+id/education"
+                   android:visibility="gone">
+
+                   <RelativeLayout
+                       android:id="@+id/lay_ed"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <ImageView
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_marginTop="5dp"
+                           android:background="@drawable/education1"></ImageView>
+
+                       <TextView
+                           android:id="@+id/txt_education_child2"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="25dp"
+                           android:padding="8dp"
+                           android:text="Заклади дошкільної освіти"
+                           android:textColor="@android:color/white"></TextView>
+
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"
+                           android:layout_below="@+id/txt_education_child2"
+                           android:layout_marginLeft="5dp"
+                           android:layout_marginRight="5dp"
+                           android:background="@android:color/darker_gray"></View>
+                   </RelativeLayout>
+
+                   <RelativeLayout
+                       android:id="@+id/lay_ed2"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/lay_ed">
+
+                       <ImageView
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_marginTop="5dp"
+                           android:background="@drawable/education1"></ImageView>
+
+                       <TextView
+                           android:id="@+id/txt_education_child"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="25dp"
+                           android:padding="8dp"
+                           android:text="Заклади загальної середньої освіти"
+                           android:textColor="@android:color/white"></TextView>
+
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"
+                           android:layout_below="@+id/txt_education_child"
+                           android:layout_marginLeft="5dp"
+                           android:layout_marginRight="5dp"
+                           android:background="@android:color/darker_gray"></View>
+                   </RelativeLayout>
+
+                   <RelativeLayout
+                       android:id="@+id/lay_ed3"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/lay_ed2">
+
+                       <ImageView
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_marginTop="15dp"
+                           android:background="@drawable/education1"></ImageView>
+
+                       <TextView
+                           android:id="@+id/txt_education_child3"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="25dp"
+                           android:padding="8dp"
+                           android:text="Професійно-технічні навчальні заклади"
+                           android:textColor="@android:color/white"></TextView>
+
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"
+                           android:layout_below="@+id/txt_education_child3"
+                           android:layout_marginLeft="5dp"
+                           android:layout_marginRight="5dp"
+                           android:background="@android:color/darker_gray"></View>
+                   </RelativeLayout>
+
+                   <RelativeLayout
+                       android:id="@+id/lay_ed4"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/lay_ed3">
+
+                       <ImageView
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_marginTop="15dp"
+                           android:background="@drawable/education1"></ImageView>
+
+                       <TextView
+                           android:id="@+id/txt_education_child4"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="25dp"
+                           android:padding="8dp"
+                           android:text="Позашкільні заклади освіти та інші навчальні заклади"
+                           android:textColor="@android:color/white"></TextView>
+                   </RelativeLayout>
+               </RelativeLayout>
+
+
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_marginTop="10dp"
+               android:background="@drawable/bg_round_without_color"
+               android:backgroundTint="@color/ColorGrey"
+               android:padding="5dp"
+               android:id="@+id/bild_culture"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:padding="5dp"
+                   android:layout_gravity="center"
+                   android:id="@+id/culture"
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:layout_marginLeft="10dp"
+                   android:scaleType="centerCrop"
+                   android:src="@drawable/culture">
+               </ImageView>
+
+               <TextView
+                   android:layout_toRightOf="@id/culture"
+                   android:layout_centerInParent="true"
+                   android:id="@+id/building_name2"
+                   android:text="Заклади культури"
+                   android:textColor="@android:color/white"
+                   android:textSize="15sp"
+                   android:textStyle="normal"
+                   android:layout_marginLeft="8dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+           </RelativeLayout>
+           <RelativeLayout
+               android:layout_marginTop="10dp"
+               android:background="@drawable/bg_round_without_color"
+               android:backgroundTint="@color/ColorGrey"
+               android:padding="5dp"
+               android:id="@+id/bild_medicine"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <RelativeLayout
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:layout_gravity="right"
+                   android:layout_alignParentEnd="true"
+                   >
+
+                   <Button
+                       android:id="@+id/buttonMedicine"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                       android:backgroundTint="@android:color/white">
+                   </Button>
+               </RelativeLayout>
+
+               <ImageView
+                   android:padding="5dp"
+                   android:layout_gravity="center"
+                   android:id="@+id/medicine"
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:layout_marginLeft="10dp"
+                   android:scaleType="centerCrop"
+                   android:src="@drawable/medicine">
+               </ImageView>
+
+               <TextView
+                   android:layout_marginTop="20dp"
+                   android:layout_toRightOf="@id/medicine"
+                   android:id="@+id/building_name3"
+                   android:text="Заклади медицини"
+                   android:textColor="@android:color/white"
+                   android:textSize="15sp"
+                   android:textStyle="normal"
+                   android:layout_marginLeft="8dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+
+               <RelativeLayout
+                   android:visibility="gone"
+                   android:id="@+id/expandMedicine"
+                   android:layout_below="@+id/medicine"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+
+                   <RelativeLayout
+                       android:id="@+id/layout_online"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                   <ImageView
+                       android:layout_marginTop="5dp"
+                       android:layout_width="25dp"
+                       android:layout_height="25dp"
+                       android:background="@drawable/online">
+                   </ImageView>
+
+                   <TextView
+                       android:layout_marginLeft="25dp"
+                       android:id="@+id/txt_medicine_online"
+                       android:padding="8dp"
+                       android:text="Онлайн запис до сімейного лікаря"
+                       android:textColor="@android:color/white"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                   </TextView>
+                   <View
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:background="@android:color/darker_gray"
+                       android:layout_below="@+id/txt_medicine_online"
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp">
+                   </View>
+                   </RelativeLayout>
+
+                   <RelativeLayout
+                       android:layout_below="@+id/layout_online"
+                       android:id="@+id/layout_doctors"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <ImageView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:background="@drawable/doctors">
+                       </ImageView>
+
+                       <TextView
+                           android:layout_marginLeft="25dp"
+                           android:id="@+id/txt_medicine_doctors"
+                           android:padding="8dp"
+                           android:text="Контакти сімейних лікарів"
+                           android:textColor="@android:color/white"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
+                       </TextView>
+                       <View
+                           android:layout_marginRight="5dp"
+                           android:layout_marginLeft="5dp"
+                           android:background="@android:color/darker_gray"
+                           android:layout_below="@+id/txt_medicine_doctors"
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp">
+                       </View>
+                   </RelativeLayout>
+
+                   <RelativeLayout
+                       android:id="@+id/layout_hospital"
+                       android:layout_below="@+id/layout_doctors"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                   <ImageView
+                       android:layout_marginTop="12dp"
+                       android:layout_width="25dp"
+                       android:layout_height="25dp"
+                       android:background="@drawable/hospital">
+                   </ImageView>
+
+                   <TextView
+                       android:layout_marginLeft="25dp"
+                       android:id="@+id/txt_medicine_cml"
+                       android:padding="8dp"
+                       android:text="КНП “Центральна міська лікарня м.Борислава“"
+                       android:textColor="@android:color/white"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                   </TextView>
+
+                   <View
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:background="@android:color/darker_gray"
+                       android:layout_below="@+id/txt_medicine_cml"
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp">
+                   </View>
+                   </RelativeLayout>
+
+                   <RelativeLayout
+                       android:id="@+id/layout_stomat"
+                       android:layout_below="@+id/layout_hospital"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <ImageView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:background="@drawable/tooth">
+                       </ImageView>
+
+                   <TextView
+                       android:layout_marginLeft="25dp"
+                       android:id="@+id/txt_medicine_stomat"
+                       android:padding="8dp"
+                       android:text="Стоматологічні кабінети"
+                       android:textColor="@android:color/white"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                   </TextView>
+                   <View
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:background="@android:color/darker_gray"
+                       android:layout_below="@+id/txt_medicine_stomat"
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp">
+                   </View>
+                   </RelativeLayout>
+
+                   <RelativeLayout
+                   android:id="@+id/layout_diag"
+                   android:layout_below="@+id/layout_stomat"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+                   <ImageView
+                       android:layout_marginTop="5dp"
+                       android:layout_width="25dp"
+                       android:layout_height="25dp"
+                       android:background="@drawable/statetoscop">
+                   </ImageView>
+
+                   <TextView
+                       android:layout_marginLeft="25dp"
+                       android:id="@+id/txt_medicine_diag"
+                       android:padding="8dp"
+                       android:text="Медичні та діагностичні центри"
+                       android:textColor="@android:color/white"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                   </TextView>
+               </RelativeLayout>
+                   <RelativeLayout
+                       android:id="@+id/layout_vet"
+                       android:layout_below="@+id/layout_diag"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <ImageView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:background="@drawable/vet">
+                       </ImageView>
+
+                       <TextView
+                           android:layout_marginLeft="25dp"
+                           android:id="@+id/txt_medicine_vet"
+                           android:padding="8dp"
+                           android:text="Ветеринарні клініки та аптеки"
+                           android:textColor="@android:color/white"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
+                       </TextView>
+                   </RelativeLayout>
+               </RelativeLayout>
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_marginTop="10dp"
+               android:background="@drawable/bg_round_without_color"
+               android:backgroundTint="@color/ColorGrey"
+               android:padding="5dp"
+               android:id="@+id/bild_sport"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+
+               <ImageView
+                   android:padding="5dp"
+                   android:layout_gravity="center"
+                   android:id="@+id/sport_run"
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:layout_marginLeft="10dp"
+                   android:src="@drawable/sport">
+               </ImageView>
+
+               <TextView
+                   android:layout_centerInParent="true"
+                   android:layout_toRightOf="@id/sport_run"
+                   android:id="@+id/building_name4"
+                   android:text="Заклади спорту"
+                   android:textColor="@android:color/white"
+                   android:textSize="15sp"
+                   android:textStyle="normal"
+                   android:layout_marginLeft="8dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+           </RelativeLayout>
+           <RelativeLayout
+               android:layout_marginTop="10dp"
+               android:background="@drawable/bg_round_without_color"
+               android:backgroundTint="@color/ColorGrey"
+               android:padding="5dp"
+               android:id="@+id/bild_company"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:id="@+id/company1"
+                   android:layout_width="51dp"
+                   android:layout_height="56dp"
+                   android:layout_gravity="center"
+                   android:layout_marginLeft="10dp"
+                   android:padding="5dp"
+                   android:scaleType="centerCrop"
+                   android:src="@drawable/company"></ImageView>
+
+               <TextView
+                   android:layout_toRightOf="@id/company1"
+                   android:layout_centerInParent="true"
+                   android:id="@+id/building_name5"
+                   android:text="Комунальні підприємства"
+                   android:textColor="@android:color/white"
+                   android:textSize="15sp"
+                   android:textStyle="normal"
+                   android:layout_marginLeft="8dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+           </RelativeLayout>
+       </LinearLayout>
+   </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/backgroundBuilding"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="10dp"
+            android:alpha="0.3"
+            android:background="@drawable/backformenu"
+            android:backgroundTint="@android:color/white"
+            android:orientation="vertical"></LinearLayout>
+
+    </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_home"
+            android:background="@color/overlayBackground"
+            app:itemTextColor="@android:color/white"
+            app:itemIconTint="@android:color/white"
+            app:menu="@menu/drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>
