@@ -5,12 +5,16 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_sign_in"
+            android:icon="@drawable/sign_in"
+            android:title="Увійти" />
+        <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_black_24dp"
             android:title="Меню" />
         <item
             android:id="@+id/nav_exit"
-            android:icon="@drawable/ic_exit"
+            android:icon="@drawable/out"
             android:title="Вихід" />
     </group>
 
@@ -24,6 +28,11 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Зворотній зв’язок" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_baseline_info_24"
+                android:iconTint="@android:color/black"
+                android:title="Розробник" />
         </menu>
     </item>
 

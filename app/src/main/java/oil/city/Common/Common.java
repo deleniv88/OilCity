@@ -14,6 +14,12 @@ public class Common {
 
     public static final String INTENT_EVENT_ID = "EventId";
     public static final String INTENT_RESTORAUNT_ID = "RestorauntId";
+    public static final String INTENT_SPORT_ID = "SportId";
+    public static final String INTENT_HOTEL_ID = "HotelId";
+    public static final String INTENT_SKI_ID = "SkiId";
+
+    public static final String DELETE = "Видалити";
+    public static final String UPDATE = "Оновити";
 
     public static boolean isConnectedToInternet(Context context)
     {

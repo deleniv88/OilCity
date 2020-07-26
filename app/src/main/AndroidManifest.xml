@@ -11,25 +11,38 @@
     <application
         android:name=".Update.App"
         android:allowBackup="true"
-        android:icon="@drawable/round632"
+        android:icon="@drawable/round1387"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@drawable/round632"
+        android:roundIcon="@drawable/round1387"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Relax.GoogleMapTourism"></activity>
-        <activity android:name=".ShowCommentRestoraunt" />
-        <activity android:name=".Relax.RestorauntDetail" />
+        <activity android:name=".Relax.Hotel.ShowCommentHotel"></activity>
+        <activity android:name=".Relax.Ski.ShowCommentSki" />
+        <activity android:name=".Relax.Sport.ShowCommentSport" />
+        <activity android:name=".Relax.Hotel.HotelDetail" />
+        <activity android:name=".Relax.Ski.SkiDetail" />
+        <activity android:name=".Relax.Sport.SportDetail" />
+        <activity android:name=".Administrations.Medicine.StomatClinicsDetail" />
+        <activity android:name=".Administrations.Medicine.StomatClinics" />
+        <activity android:name=".Administrations.Medicine.DiagnosticCenterDetail" />
+        <activity android:name=".Administrations.Medicine.DiagnosticCentersMedicine" />
+        <activity android:name=".Splash_Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Relax.GoogleMapTourism" />
+        <activity android:name=".Relax.Restoraunt.ShowCommentRestoraunt" />
+        <activity android:name=".Relax.Restoraunt.RestorauntDetail" />
         <activity android:name=".Flat.Domofon" />
         <activity android:name=".Flat.Beskyd" />
-        <activity android:name=".Flat.Ecosvit" />
         <activity android:name=".Administrations.Medicine.HospitalDetail" />
         <activity android:name=".Administrations.Medicine.Doctors" />
-        <activity android:name=".Relax.HotelActivity" />
-        <activity android:name=".Flat.WebVododar" />
-        <activity android:name=".Flat.WebLvivGaz" />
-        <activity android:name=".Flat.WebLvivEnergo" />
-        <activity android:name=".Relax.SkiActivity" />
+        <activity android:name=".Relax.Hotel.HotelActivity" />
+        <activity android:name=".Relax.Ski.SkiActivity" />
         <activity android:name=".Administrations.Company.CompanyDetail" />
         <activity android:name=".Administrations.Company.Company" />
         <activity android:name=".Administrations.Culture.CultureDetail" />
@@ -45,7 +58,6 @@
         <activity android:name=".Administrations.Education.EducationSchoolDetail" />
         <activity android:name=".Administrations.Education.EducationSchool" />
         <activity android:name=".Flat.Flat" />
-        <activity android:name=".Administrations.Medicine.Medicine" />
         <activity android:name=".Administrations.Buildings" />
 
         <service android:name=".MyMessagingService">
@@ -54,14 +66,14 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Relax.SportActivity" />
-        <activity android:name=".Relax.RestorauntActivity" />
+        <activity android:name=".Relax.Sport.SportActivity" />
+        <activity android:name=".Relax.Restoraunt.RestorauntActivity" />
         <activity android:name=".Relax.RelaxActivity" />
         <activity android:name=".Administrations.Government.GovernmentDetail" />
         <activity android:name=".Register" />
         <activity android:name=".Administrations.Government.Government" />
         <activity android:name=".Events.EventDetail" />
-        <activity android:name=".ShowCommentEvent" />
+        <activity android:name=".Events.ShowCommentEvent" />
         <activity android:name=".VerifyPhone" />
         <activity android:name=".Home" />
 
@@ -86,13 +98,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".WebView" />
         <activity android:name=".News.NewsDetail" />
         <activity android:name=".Events.EventActivity" />

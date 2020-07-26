@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/myBackground"
     android:id="@+id/swipeLayout"
-    tools:context=".ShowCommentEvent">
+    tools:context=".Events.ShowCommentEvent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerComment"

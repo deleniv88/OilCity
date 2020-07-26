@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@color/overlayBackground"
+    android:background="@color/fui_transparent"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -20,48 +20,50 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/avatar"
-                android:src="@drawable/boryslavgerb"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center">
-            </ImageView>
+            <!--            <ImageView-->
+            <!--                android:layout_width="70dp"-->
+            <!--                android:layout_height="70dp"-->
+            <!--                android:id="@+id/avatar"-->
+            <!--                android:src="@drawable/boryslavgerb"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_gravity="center">-->
+            <!--            </ImageView>-->
 
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/userName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text=""
                     android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:text="This is name" />
+                    android:textSize="12sp" />
+
                 <TextView
                     android:id="@+id/userEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text=""
                     android:textColor="@android:color/white"
-                    android:text="This is Email"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
+
                 <TextView
                     android:id="@+id/userPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
+                    android:inputType="phone"
                     android:text=""
-                    android:inputType="phone"/>
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
         </LinearLayout>

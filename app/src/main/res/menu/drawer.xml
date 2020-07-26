@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_sign_in"
+            android:icon="@drawable/sign_in"
+            android:title="Увійти" />
+        <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_black_24dp"
             android:title="Меню" />
@@ -34,7 +38,7 @@
             android:title="Комуналка" />
         <item
             android:id="@+id/nav_exit"
-            android:icon="@drawable/ic_exit"
+            android:icon="@drawable/out"
             android:title="Вихід" />
         <item
             android:id="@+id/nav_share"

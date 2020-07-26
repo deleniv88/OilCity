@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
@@ -46,7 +47,7 @@ import oil.city.Relax.RelaxActivity;
 public class NewsDetail extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView news_name, news_description;
-    ImageView img_news, img, img1, image_share;
+    ImageView img_news, img, img1, image_share, img2,img3,img4,img5,img6,img7,img8,img9;
     CollapsingToolbarLayout collapsingToolbarLayout;
     String newsId="";
 
@@ -78,6 +79,14 @@ public class NewsDetail extends AppCompatActivity implements NavigationView.OnNa
 
         img = findViewById(R.id.img);
         img1 = findViewById(R.id.img1);
+        img2 = findViewById(R.id.img2);
+        img3 = findViewById(R.id.img3);
+        img4 = findViewById(R.id.img4);
+        img5 = findViewById(R.id.img5);
+        img6 = findViewById(R.id.img6);
+        img7 = findViewById(R.id.img7);
+        img8 = findViewById(R.id.img8);
+        img9 = findViewById(R.id.img9);
         btnShowComment = findViewById(R.id.btnShowComment);
 
         collapsingToolbarLayout = findViewById(R.id.collapsing_news);
@@ -110,18 +119,21 @@ public class NewsDetail extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
 
         final FirebaseUser user = mAuth.getCurrentUser();
-        String name = user.getDisplayName();
-        String email = user.getEmail();
-        String phone = user.getPhoneNumber();
 
+        if (user != null) {
 
-        View header = navigationView.getHeaderView(0);
-        userPhone = header.findViewById(R.id.userPhone);
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String phone = user.getPhoneNumber();
+
+            View header = navigationView.getHeaderView(0);
+            userPhone = header.findViewById(R.id.userPhone);
 //        userPhone.setText(phone1);
-        userEmail = header.findViewById(R.id.userEmail);
-        userEmail.setText(email);
-        userName = header.findViewById(R.id.userName);
-        userName.setText(name);
+            userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(email);
+            userName = header.findViewById(R.id.userName);
+            userName.setText(name);
+        }
 
     }
 
@@ -137,6 +149,22 @@ public class NewsDetail extends AppCompatActivity implements NavigationView.OnNa
                         .into(img);
                 Picasso.with(getBaseContext()).load(news.getImg1())
                         .into(img1);
+                Picasso.with(getBaseContext()).load(news.getImg2())
+                        .into(img2);
+                Picasso.with(getBaseContext()).load(news.getImg3())
+                        .into(img3);
+                Picasso.with(getBaseContext()).load(news.getImg4())
+                        .into(img4);
+                Picasso.with(getBaseContext()).load(news.getImg5())
+                        .into(img5);
+                Picasso.with(getBaseContext()).load(news.getImg6())
+                        .into(img6);
+                Picasso.with(getBaseContext()).load(news.getImg7())
+                        .into(img7);
+                Picasso.with(getBaseContext()).load(news.getImg8())
+                        .into(img8);
+                Picasso.with(getBaseContext()).load(news.getImg9())
+                        .into(img9);
 
 //                collapsingToolbarLayout.setTitle(news.getName());
 
@@ -200,6 +228,15 @@ public class NewsDetail extends AppCompatActivity implements NavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
+        if (id == R.id.nav_sign_in){
+            if (mAuth.getCurrentUser() == null) {
+                Intent main = new Intent(this, MainActivity.class);
+                startActivity(main);
+            }else {
+                Toast.makeText(this, "Ви вже увійшли", Toast.LENGTH_SHORT).show();
+            }
+        }
+
         if (id == R.id.nav_home){
             Intent menu = new Intent(this, Home.class);
             startActivity(menu);
@@ -256,16 +293,20 @@ public class NewsDetail extends AppCompatActivity implements NavigationView.OnNa
 
         if (id == R.id.nav_exit) {
 
-            Paper.book().destroy();
+            if (mAuth.getCurrentUser() != null) {
+                Paper.book().destroy();
 
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
 //            com.facebook.login.LoginManager.getInstance().logOut();
 
-            mAuth.signOut();
-            sendToLogin();
+                mAuth.signOut();
+                sendToLogin();
+            } else {
+                Toast.makeText(this, "Ви не зареєстровані", Toast.LENGTH_SHORT).show();
+            }
         }
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);

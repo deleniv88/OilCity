@@ -3,7 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/refresh"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Refresh"
+        android:icon="@drawable/smile"
+        android:title="Дозвілля"
         android:iconTint="@android:color/white" />
+
+    <item
+        android:id="@+id/news"
+        android:icon="@drawable/folded_newspaper"
+        android:title="Новини"
+        android:iconTint="@android:color/white" />
+
+    <item
+        android:id="@+id/events"
+        android:icon="@drawable/calendar"
+        android:title="Події"
+        android:iconTint="@android:color/background_dark" />
+
+    <item
+        android:id="@+id/bus"
+        android:icon="@drawable/bus"
+        android:title="Транспорт"
+        android:iconTint="@android:color/background_dark" />
+
+    <item
+        android:id="@+id/flat"
+        android:icon="@drawable/flat"
+        android:title="Комуналка"
+        android:iconTint="@android:color/background_dark" />
+
+    <item
+        android:id="@+id/admin"
+        android:icon="@drawable/city_hall"
+        android:title="Держ.заклади та ін."
+        android:iconTint="@android:color/background_dark" />
 </menu>

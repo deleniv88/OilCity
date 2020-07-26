@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
                 final String pass = edtPassword.getText().toString();
 
                 if (email.isEmpty() || pass.isEmpty()){
-                    showMessage("Введіть емейл і пароль");
+                    showMessage("Введіть ел.пошту і пароль");
                 }else {
                     singIn(email,pass);
                 }

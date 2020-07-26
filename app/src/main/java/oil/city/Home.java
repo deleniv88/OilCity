@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,6 +20,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -39,11 +42,15 @@ import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.StorageReference;
 import com.jetradarmobile.snowfall.SnowfallView;
 import com.squareup.picasso.Picasso;
@@ -139,6 +146,28 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "blogger.otf",true);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){//for notifications
+            NotificationChannel channel =
+                    new NotificationChannel( "MyNotifications", "MyNotifications",
+                            NotificationManager.IMPORTANCE_DEFAULT);
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+        }
+
+        FirebaseMessaging.getInstance().subscribeToTopic("general")//cloud messaging
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+//                        String msg = "Вітаємо"; //повідомлення при вході у меню
+//                        if (!task.isSuccessful()){
+//                            msg = "Failed";
+//                        }
+//                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
         UpdateHelper.with(this)
                 .onUpdateCheck(this)
                 .check();
@@ -150,7 +179,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         callbackManager = CallbackManager.Factory.create();
         shareDialog = new ShareDialog(this);
 
-        horizontalScrollView = findViewById(R.id.horizontal);
+//        horizontalScrollView = findViewById(R.id.horizontal);
         linearLayout = findViewById(R.id.linear);
 
         PhotoAdmin = findViewById(R.id.PhotoAdmin);
@@ -238,18 +267,21 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         auth.getCurrentUser();
 
         final FirebaseUser user = mAuth.getCurrentUser();
-        String name = user.getDisplayName();
-        String email = user.getEmail();
-        String phone = user.getPhoneNumber();
 
+        if (user != null) {
 
-        View header = navigationView.getHeaderView(0);
-        userPhone = header.findViewById(R.id.userPhone);
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String phone = user.getPhoneNumber();
+
+            View header = navigationView.getHeaderView(0);
+            userPhone = header.findViewById(R.id.userPhone);
 //        userPhone.setText(phone1);
-        userEmail = header.findViewById(R.id.userEmail);
-        userEmail.setText(email);
-        userName = header.findViewById(R.id.userName);
-        userName.setText(name);
+            userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(email);
+            userName = header.findViewById(R.id.userName);
+            userName.setText(name);
+        }
 //        imgUserPhoto = header.findViewById(R.id.avatar);
 
 //        final ImageView imgUserPhoto = header.findViewById(R.id.avatar);
@@ -275,11 +307,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         if (Common.isConnectedToInternet(getBaseContext()))
             loadEvent();
         else {
-            Toast.makeText(Home.this, "Немеє з’єднання з інтернетом!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Home.this, "Немає з’єднання з інтернетом!", Toast.LENGTH_SHORT).show();
             return ;
         }
 
     }
+
 
 //    private void updateUserPhoto() {
 //        final FirebaseUser user = mAuth.getCurrentUser();
@@ -483,6 +516,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
+        if (id == R.id.nav_sign_in){
+            if (mAuth.getCurrentUser() == null) {
+                Intent main = new Intent(this, MainActivity.class);
+                startActivity(main);
+            }else {
+                Toast.makeText(this, "Ви вже увійшли", Toast.LENGTH_SHORT).show();
+            }
+        }
+
         if (id == R.id.nav_share){ //share button
             Intent share = new Intent(Intent.ACTION_SEND);
             share.setType("text/plain");
@@ -503,21 +545,58 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         if (id == R.id.nav_exit) {
 
-            Paper.book().destroy();
+            if (mAuth.getCurrentUser() != null) {
+                Paper.book().destroy();
 
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
 //            com.facebook.login.LoginManager.getInstance().logOut();
 
-            mAuth.signOut();
-            sendToLogin();
+                mAuth.signOut();
+                sendToLogin();
+            } else {
+                Toast.makeText(this, "Ви не зареєстровані", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        if (id == R.id.nav_about){
+            sendDialog = new Dialog(this);
+            showAboutMenu();
         }
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showAboutMenu() {
+
+        LinearLayout instagramMe, facebookMe;
+        sendDialog.setContentView(R.layout.layout_about);
+
+        instagramMe = sendDialog.findViewById(R.id.instagramMe);
+        facebookMe = sendDialog.findViewById(R.id.facebookMe);
+
+        instagramMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent insta = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/deleniv"));
+                startActivity(insta);
+            }
+        });
+
+        facebookMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent face = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/deleniv8888"));
+                startActivity(face);
+            }
+        });
+        sendDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        sendDialog.show();
     }
 
     private void showPopMenu() {
@@ -565,7 +644,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 }).setNegativeButton("Відмінити", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
-                        Toast.makeText(Home.this, "Ви скасували оновлення! Оновіть застосунок для вірного відображення інформації!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Home.this, "Ви скасували оновлення! Оновіть застосунок для вірного відображення інформації!", Toast.LENGTH_LONG).show();
                         dialog.dismiss();
                     }
                 }).create();

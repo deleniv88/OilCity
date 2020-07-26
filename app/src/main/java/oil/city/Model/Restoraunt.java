@@ -2,12 +2,13 @@ package oil.city.Model;
 
 public class Restoraunt {
 
-    private String Name, Image, TextOfRest, PhoneOfRest, Img, Img1, Location, Adress, Time;
+    private String Name, Image, TextOfRest, PhoneOfRest, Img, Img1, Location, Adress, Time, Instagram;
 
     public Restoraunt() {
     }
 
-    public Restoraunt(String name, String image, String textOfRest, String phoneOfRest, String img, String img1, String location, String adress, String time) {
+    public Restoraunt(String instagram, String name, String image, String textOfRest, String phoneOfRest, String img, String img1, String location, String adress, String time) {
+        Instagram = instagram;
         Name = name;
         Image = image;
         TextOfRest = textOfRest;
@@ -17,6 +18,14 @@ public class Restoraunt {
         Location = location;
         Adress = adress;
         Time = time;
+    }
+
+    public String getInstagram() {
+        return Instagram;
+    }
+
+    public void setInstagram(String instagram) {
+        Instagram = instagram;
     }
 
     public String getName() {

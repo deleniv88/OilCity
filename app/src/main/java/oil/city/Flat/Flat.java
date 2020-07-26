@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,18 +73,21 @@ public class Flat extends AppCompatActivity implements NavigationView.OnNavigati
         navigationView.setNavigationItemSelectedListener(this);
 
         final FirebaseUser user = mAuth.getCurrentUser();
-        String name = user.getDisplayName();
-        String email = user.getEmail();
-        String phone = user.getPhoneNumber();
 
+        if (user != null) {
 
-        View header = navigationView.getHeaderView(0);
-        userPhone = header.findViewById(R.id.userPhone);
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String phone = user.getPhoneNumber();
+
+            View header = navigationView.getHeaderView(0);
+            userPhone = header.findViewById(R.id.userPhone);
 //        userPhone.setText(phone1);
-        userEmail = header.findViewById(R.id.userEmail);
-        userEmail.setText(email);
-        userName = header.findViewById(R.id.userName);
-        userName.setText(name);
+            userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(email);
+            userName = header.findViewById(R.id.userName);
+            userName.setText(name);
+        }
 
         domofon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +108,7 @@ public class Flat extends AppCompatActivity implements NavigationView.OnNavigati
         ecosvit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Flat.this, Ecosvit.class);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ipay.ua/ua/bills/p2r-tov-dv-ekosv-t"));
                 startActivity(intent);
             }
         });
@@ -114,7 +118,6 @@ public class Flat extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://easypay.ua/ua/catalog/utility/lvov/lvovgaz"));
-//                Intent intent = new Intent(Flat.this, WebLvivGaz.class);
                 startActivity(intent);
             }
         });
@@ -123,7 +126,6 @@ public class Flat extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://easypay.ua/ua/catalog/utility/lvov/lvovoblenergo"));
-//                Intent intent = new Intent(Flat.this, WebLvivEnergo.class);
                 startActivity(intent);
             }
         });
@@ -132,7 +134,6 @@ public class Flat extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://boryslavvoda.com.ua/content/oplata_poslug"));
-//                Intent intent = new Intent(Flat.this, WebVododar.class);
                 startActivity(intent);
             }
         });
@@ -170,6 +171,15 @@ public class Flat extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
+
+        if (id == R.id.nav_sign_in){
+            if (mAuth.getCurrentUser() == null) {
+                Intent main = new Intent(this, MainActivity.class);
+                startActivity(main);
+            }else {
+                Toast.makeText(this, "Ви вже увійшли", Toast.LENGTH_SHORT).show();
+            }
+        }
 
         if (id == R.id.nav_home){
             Intent menu = new Intent(this, Home.class);
@@ -227,16 +237,20 @@ public class Flat extends AppCompatActivity implements NavigationView.OnNavigati
 
         if (id == R.id.nav_exit) {
 
-            Paper.book().destroy();
+            if (mAuth.getCurrentUser() != null) {
+                Paper.book().destroy();
 
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
 //            com.facebook.login.LoginManager.getInstance().logOut();
 
-            mAuth.signOut();
-            sendToLogin();
+                mAuth.signOut();
+                sendToLogin();
+            } else {
+                Toast.makeText(this, "Ви не зареєстровані", Toast.LENGTH_SHORT).show();
+            }
         }
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);

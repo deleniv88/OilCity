@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,8 +36,10 @@ import oil.city.Administrations.Education.EducationOther;
 import oil.city.Administrations.Education.EducationProf;
 import oil.city.Administrations.Education.EducationSchool;
 import oil.city.Administrations.Government.Government;
+import oil.city.Administrations.Medicine.DiagnosticCentersMedicine;
 import oil.city.Administrations.Medicine.Doctors;
 import oil.city.Administrations.Medicine.HospitalDetail;
+import oil.city.Administrations.Medicine.StomatClinics;
 import oil.city.Administrations.Sport.SportAdmins;
 import oil.city.Bus.Bus;
 import oil.city.Events.EventActivity;
@@ -58,7 +61,8 @@ public class Buildings extends AppCompatActivity implements NavigationView.OnNav
 
     RelativeLayout buil_government, bild_education, bild_medicine, bild_sport,bild_culture,bild_company;
 
-    RelativeLayout expand,expandMedicine,layout_doctors,layout_hospital;
+    RelativeLayout expand,expandMedicine,layout_doctors,layout_hospital,layout_diag,layout_stomat,layout_vet;
+
     Button buttonMedecine,buttonEducation;
 
     FirebaseAuth mAuth; //facebook
@@ -86,29 +90,25 @@ public class Buildings extends AppCompatActivity implements NavigationView.OnNav
         auth.getCurrentUser();
 
         final FirebaseUser user = mAuth.getCurrentUser();
-        String name = user.getDisplayName();
-        String email = user.getEmail();
-        String phone = user.getPhoneNumber();
+
+        if (user != null) {
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String phone = user.getPhoneNumber();
 
 
-        View header = navigationView.getHeaderView(0);
-        userPhone = header.findViewById(R.id.userPhone);
+            View header = navigationView.getHeaderView(0);
+            userPhone = header.findViewById(R.id.userPhone);
 //        userPhone.setText(phone1);
-        userEmail = header.findViewById(R.id.userEmail);
-        userEmail.setText(email);
-        userName = header.findViewById(R.id.userName);
-        userName.setText(name);
+            userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(email);
+            userName = header.findViewById(R.id.userName);
+            userName.setText(name);
+        }
 
-        expand = findViewById(R.id.expand);
-        expandMedicine = findViewById(R.id.expandMedicine);
+        scrollBuild = findViewById(R.id.scrollBuild);
 
-
-        buttonMedecine = findViewById(R.id.buttonMedicine);
-        buttonEducation = findViewById(R.id.buttonEducation);
-
-        layout_doctors = findViewById(R.id.layout_doctors);
-        layout_hospital = findViewById(R.id.layout_hospital);
-
+        //menu main
         buil_government = findViewById(R.id.buil_government);
         bild_education = findViewById(R.id.bild_education);
         bild_medicine = findViewById(R.id.bild_medicine);
@@ -116,18 +116,24 @@ public class Buildings extends AppCompatActivity implements NavigationView.OnNav
         bild_culture = findViewById(R.id.bild_culture);
         bild_company = findViewById(R.id.bild_company);
 
-        scrollBuild = findViewById(R.id.scrollBuild);
+        //menu medicine
+        expandMedicine = findViewById(R.id.expandMedicine);
+        buttonMedecine = findViewById(R.id.buttonMedicine);
+        layout_doctors = findViewById(R.id.layout_doctors);
+        layout_hospital = findViewById(R.id.layout_hospital);
+        layout_diag = findViewById(R.id.layout_diag);
+        layout_stomat = findViewById(R.id.layout_stomat);
+        layout_vet = findViewById(R.id.layout_vet);
+        txt_medicine_online = findViewById(R.id.txt_medicine_online);
+        txt_medicine_doctors = findViewById(R.id.txt_medicine_doctors);
+
         //education
+        expand = findViewById(R.id.expand);
+        buttonEducation = findViewById(R.id.buttonEducation);
         txt_education_child = findViewById(R.id.txt_education_child);
         txt_education_child2 = findViewById(R.id.txt_education_child2);
         txt_education_child3 = findViewById(R.id.txt_education_child3);
         txt_education_child4 = findViewById(R.id.txt_education_child4);
-        //medicine
-        txt_medicine_online = findViewById(R.id.txt_medicine_online);
-        txt_medicine_doctors = findViewById(R.id.txt_medicine_doctors);
-        //sport
-
-
 
         buil_government.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,6 +189,7 @@ public class Buildings extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent);
             }
         });
+
         //medicine
         buttonMedecine.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,6 +228,29 @@ public class Buildings extends AppCompatActivity implements NavigationView.OnNav
             public void onClick(View v) {
                 Intent intent = new Intent(Buildings.this, HospitalDetail.class);
                 startActivity(intent);
+            }
+        });
+
+        layout_diag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Buildings.this, DiagnosticCentersMedicine.class);
+                startActivity(intent);
+            }
+        });
+
+        layout_stomat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Buildings.this, StomatClinics.class);
+                startActivity(intent);
+            }
+        });
+
+        layout_vet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Buildings.this, "Розділ в процесі наповнення", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -280,6 +310,15 @@ public class Buildings extends AppCompatActivity implements NavigationView.OnNav
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
+        if (id == R.id.nav_sign_in){
+            if (mAuth.getCurrentUser() == null) {
+                Intent main = new Intent(this, MainActivity.class);
+                startActivity(main);
+            }else {
+                Toast.makeText(this, "Ви вже увійшли", Toast.LENGTH_SHORT).show();
+            }
+        }
+
         if (id == R.id.nav_home){
             Intent menu = new Intent(this, Home.class);
             startActivity(menu);
@@ -336,16 +375,20 @@ public class Buildings extends AppCompatActivity implements NavigationView.OnNav
 
         if (id == R.id.nav_exit) {
 
-            Paper.book().destroy();
+            if (mAuth.getCurrentUser() != null) {
+                Paper.book().destroy();
 
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
 //            com.facebook.login.LoginManager.getInstance().logOut();
 
-            mAuth.signOut();
-            sendToLogin();
+                mAuth.signOut();
+                sendToLogin();
+            } else {
+                Toast.makeText(this, "Ви не зареєстровані", Toast.LENGTH_SHORT).show();
+            }
         }
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);

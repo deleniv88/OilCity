@@ -43,7 +43,7 @@ public class VerifyPhone extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendVerificationCode();
-                Toast.makeText(VerifyPhone.this, "Code was sent", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VerifyPhone.this, "Код надіслано", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(VerifyPhone.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -69,10 +69,10 @@ public class VerifyPhone extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(VerifyPhone.this, "Login", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(VerifyPhone.this, "Виконується вхід", Toast.LENGTH_SHORT).show();
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException)
-                                Toast.makeText(VerifyPhone.this, "Incorrect Code", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(VerifyPhone.this, "Невірний код", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -81,12 +81,12 @@ public class VerifyPhone extends AppCompatActivity {
         String phone = editTextPhone.getText().toString();
 
         if (phone.isEmpty()){
-            editTextPhone.setError("Phone number is requierd");
+            editTextPhone.setError("Номер не введено");
             editTextPhone.requestFocus();
             return;
         }
         if (phone.length()<10){
-            editTextPhone.setError("Please enter norm number");
+            editTextPhone.setError("Номер введено невірно");
             editTextPhone.requestFocus();
             return;
         }

@@ -2,12 +2,14 @@ package oil.city.Events;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -56,7 +58,7 @@ import oil.city.Model.Rating;
 import oil.city.News.NewsActivity;
 import oil.city.R;
 import oil.city.Relax.RelaxActivity;
-import oil.city.ShowCommentEvent;
+
 
 public class EventDetail extends AppCompatActivity implements RatingDialogListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -108,8 +110,38 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
         btn_rating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showRatingDialog();
+
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                if (auth.getCurrentUser() == null){
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(EventDetail.this);
+                    builder.setTitle("Щоб залишити відгук, потрібно увійти");
+
+                    builder.setPositiveButton("Увійти", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            Intent intent = new Intent(EventDetail.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    builder.setNegativeButton("Відміна", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    builder.show();
+
+//                    Toast.makeText(RestorauntDetail.this, "Щоб залишити відгук, потрібно увійти або зареєструватись", Toast.LENGTH_LONG).show();
+//                    Intent intent = new Intent(RestorauntDetail.this, MainActivity.class);
+//                    startActivity(intent);
+                }else {
+                    showRatingDialog();
+                }
+
             }
+
         });
 
         collapsing_event_detail = findViewById(R.id.collapsing_event_detail);
@@ -126,7 +158,7 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
                 getRatingEvent(event_detail_Id);
             }
             else  {
-                Toast.makeText(EventDetail.this, "Немеє з’єднання з інтернетом!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventDetail.this, "Немає з’єднання з інтернетом!", Toast.LENGTH_SHORT).show();
                 return ;
             }
         }
@@ -151,18 +183,21 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
         navigationView.setNavigationItemSelectedListener(this);
 
         final FirebaseUser user = mAuth.getCurrentUser();
-        String name = user.getDisplayName();
-        String email = user.getEmail();
-        String phone = user.getPhoneNumber();
 
+        if (user != null) {
 
-        View header = navigationView.getHeaderView(0);
-        userPhone = header.findViewById(R.id.userPhone);
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String phone = user.getPhoneNumber();
+
+            View header = navigationView.getHeaderView(0);
+            userPhone = header.findViewById(R.id.userPhone);
 //        userPhone.setText(phone1);
-        userEmail = header.findViewById(R.id.userEmail);
-        userEmail.setText(email);
-        userName = header.findViewById(R.id.userName);
-        userName.setText(name);
+            userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(email);
+            userName = header.findViewById(R.id.userName);
+            userName.setText(name);
+        }
 
     }
 
@@ -198,7 +233,6 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
                 .setNoteDescriptions(Arrays.asList("Жахливо", "Погано", "Ок", "Добре", "Чудово"))
                 .setDefaultRating(1)
                 .setTitle("Дайте оцінку події")
-                .setDescription("Оберіть рейтинг")
                 .setHintTextColor(R.color.colorPrimary)
                 .setDescriptionTextColor(R.color.colorPrimary)
                 .setHint("Напишіть свій відгук")
@@ -255,8 +289,10 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
 
         final FirebaseUser user = mAuth.getCurrentUser();
         String name = user.getDisplayName();
+        String uid = user.getUid();
 
-        final Rating rating = new Rating(name,
+
+        final Rating rating = new Rating(uid,name,
                 event_detail_Id,
                 String.valueOf(value),
                 comments);
@@ -266,7 +302,7 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(EventDetail.this, "Thank you", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EventDetail.this, "Дякуємо за відгук!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -303,6 +339,15 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
+
+        if (id == R.id.nav_sign_in){
+            if (mAuth.getCurrentUser() == null) {
+                Intent main = new Intent(this, MainActivity.class);
+                startActivity(main);
+            }else {
+                Toast.makeText(this, "Ви вже увійшли", Toast.LENGTH_SHORT).show();
+            }
+        }
 
         if (id == R.id.nav_home){
             Intent menu = new Intent(this, Home.class);
@@ -360,16 +405,20 @@ public class EventDetail extends AppCompatActivity implements RatingDialogListen
 
         if (id == R.id.nav_exit) {
 
-            Paper.book().destroy();
+            if (mAuth.getCurrentUser() != null) {
+                Paper.book().destroy();
 
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
 //            com.facebook.login.LoginManager.getInstance().logOut();
 
-            mAuth.signOut();
-            sendToLogin();
+                mAuth.signOut();
+                sendToLogin();
+            } else {
+                Toast.makeText(this, "Ви не зареєстровані", Toast.LENGTH_SHORT).show();
+            }
         }
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);

@@ -80,12 +80,13 @@
                     android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:gravity="center"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
                         <ImageView
                             android:layout_marginLeft="5dp"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:background="@drawable/phone">
                         </ImageView>
                     </LinearLayout>
@@ -127,13 +128,14 @@
                     android:padding="2dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:gravity="center"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
 
                         <ImageView
                             android:layout_marginLeft="5dp"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:background="@drawable/location">
                         </ImageView>
                     </LinearLayout>
@@ -168,18 +170,24 @@
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/ColorGrey">
 
-                <RelativeLayout
+                <LinearLayout
+                    android:padding="2dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/image_hour"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/clock"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginLeft="30dp">
-                </ImageView>
+                    <LinearLayout
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">>
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/clock"
+                            >
+                        </ImageView>
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/admin_hour"
@@ -188,11 +196,11 @@
                         android:layout_gravity="center"
                         android:layout_toRightOf="@+id/image_hour"
                         android:lineSpacingMultiplier="1.5"
-                        android:padding="12dp"
+                        android:padding="5dp"
                         android:text="Графік роботи стаціонарних відділень: цілодобово\nГрафік роботи поліклінічних відділень: 8.00-18.00"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"></TextView>
-                </RelativeLayout>
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 

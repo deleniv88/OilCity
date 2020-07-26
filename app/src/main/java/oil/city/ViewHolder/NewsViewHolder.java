@@ -13,7 +13,7 @@ import oil.city.R;
 public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView news_name;
-    public ImageView news_image, img, img1;
+    public ImageView news_image;
 
     private ItemClickListener listener;
 
@@ -23,11 +23,9 @@ public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     public NewsViewHolder(@NonNull View itemView) {
         super(itemView);
-        news_name = itemView.findViewById(R.id.food_name);
+        news_name = itemView.findViewById(R.id.news_name);
 
-        news_image = itemView.findViewById(R.id.food_image);
-        img = itemView.findViewById(R.id.food_img1);
-        img1 = itemView.findViewById(R.id.food_img1);
+        news_image = itemView.findViewById(R.id.news_image);
 
         itemView.setOnClickListener(this);
 

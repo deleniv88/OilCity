@@ -14,28 +14,16 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/food_image"
+            android:id="@+id/news_image"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ImageView>
-        <ImageView
-            android:id="@+id/food_img"
-            android:scaleType="centerCrop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </ImageView>
-        <ImageView
-            android:id="@+id/food_img1"
-            android:scaleType="centerCrop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </ImageView>
 
         <TextView
-            android:id="@+id/food_name"
-            android:text="Name of Event"
+            android:id="@+id/news_name"
+            android:text="Name of News"
             android:textColor="@android:color/white"
             android:background="@color/overlayBackground"
             android:textSize="15sp"

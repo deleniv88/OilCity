@@ -34,6 +34,6 @@ public class SkiViewHolder extends RecyclerView.ViewHolder implements View.OnCli
 
     @Override
     public void onClick(View v) {
-//        listener.onClick(v, getAdapterPosition(),false);
+        listener.onClick(v, getAdapterPosition(),false);
     }
 }

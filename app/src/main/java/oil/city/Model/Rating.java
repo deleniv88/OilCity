@@ -1,19 +1,30 @@
 package oil.city.Model;
 
 public class Rating {
+    private String userUid;
     private String userName;
     private String eventId;
     private String rateValue;
     private String comment;
 
+
     public Rating() {
     }
 
-    public Rating(String userName, String eventId, String rateValue, String comment) {
+    public Rating(String userUid, String userName, String eventId, String rateValue, String comment) {
+        this.userUid = userUid;
         this.userName = userName;
         this.eventId = eventId;
         this.rateValue = rateValue;
         this.comment = comment;
+    }
+
+    public String getUserUid() {
+        return userUid;
+    }
+
+    public void setUserUid(String userUid) {
+        this.userUid = userUid;
     }
 
     public String getUserName() {

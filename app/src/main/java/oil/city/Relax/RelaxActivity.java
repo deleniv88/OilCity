@@ -20,7 +20,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,6 +38,10 @@ import oil.city.Home;
 import oil.city.MainActivity;
 import oil.city.News.NewsActivity;
 import oil.city.R;
+import oil.city.Relax.Hotel.HotelActivity;
+import oil.city.Relax.Restoraunt.RestorauntActivity;
+import oil.city.Relax.Ski.SkiActivity;
+import oil.city.Relax.Sport.SportActivity;
 
 public class RelaxActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,41 +50,80 @@ public class RelaxActivity extends AppCompatActivity implements NavigationView.O
     FirebaseAuth mAuth; //facebook
     TextView userName, userEmail, userPhone;//for profile view
 
+    FloatingActionMenu materialDesignFAM;
+    FloatingActionButton floatingSend, floatingActionButton2, floatingActionButton3, floatingActionButton4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relax);
 
         mAuth = FirebaseAuth.getInstance(); //facebook
+        
+//        materialDesignFAM = (FloatingActionMenu) findViewById(R.id.fab_icon);
+//        floatingSend = (FloatingActionButton) findViewById(R.id.menu_item_send);
+//        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item2);
+//        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item3);
+//        floatingActionButton4 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item4);
+//
+//        floatingSend.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                sendDialog = new Dialog(RelaxActivity.this);
+//                showPopMenu();
+//            }
+//        });
+//        floatingActionButton2.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                //TODO something when floating action menu second item clicked
+//
+//            }
+//        });
+//        floatingActionButton3.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                //TODO something when floating action menu third item clicked
+//
+//            }
+//        });
+//        floatingActionButton4.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                //TODO something when floating action menu third item clicked
+//
+//            }
+//        });
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         final FirebaseUser user = mAuth.getCurrentUser();
-        String name = user.getDisplayName();
-        String email = user.getEmail();
-        String phone = user.getPhoneNumber();
+        if (user != null) {
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String phone = user.getPhoneNumber();
 
 
-        View header = navigationView.getHeaderView(0);
-        userPhone = header.findViewById(R.id.userPhone);
+            View header = navigationView.getHeaderView(0);
+            userPhone = header.findViewById(R.id.userPhone);
 //        userPhone.setText(phone1);
-        userEmail = header.findViewById(R.id.userEmail);
-        userEmail.setText(email);
-        userName = header.findViewById(R.id.userName);
-        userName.setText(name);
+            userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(email);
+            userName = header.findViewById(R.id.userName);
+            userName.setText(name);
+        }
 
         wheretoeat = findViewById(R.id.wheretoeat);
         wheretosport = findViewById(R.id.wheretosport);
         wheretoski = findViewById(R.id.wheretoski);
         wheretosleep = findViewById(R.id.wheretosleep);
+        wheretonature = findViewById(R.id.wheretonature);
         wheretotourism = findViewById(R.id.wheretotourism);
 
         wheretoeat.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +156,13 @@ public class RelaxActivity extends AppCompatActivity implements NavigationView.O
             public void onClick(View v) {
                 Intent intent = new Intent(RelaxActivity.this, HotelActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        wheretonature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(RelaxActivity.this, "Даний розділ в процесі наповнення", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -153,6 +207,15 @@ public class RelaxActivity extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
+
+        if (id == R.id.nav_sign_in){
+            if (mAuth.getCurrentUser() == null) {
+                Intent main = new Intent(this, MainActivity.class);
+                startActivity(main);
+            }else {
+                Toast.makeText(this, "Ви вже увійшли", Toast.LENGTH_SHORT).show();
+            }
+        }
 
         if (id == R.id.nav_home){
             Intent menu = new Intent(this, Home.class);
@@ -210,16 +273,20 @@ public class RelaxActivity extends AppCompatActivity implements NavigationView.O
 
         if (id == R.id.nav_exit) {
 
-            Paper.book().destroy();
+            if (mAuth.getCurrentUser() != null) {
+                Paper.book().destroy();
 
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
 //            com.facebook.login.LoginManager.getInstance().logOut();
 
-            mAuth.signOut();
-            sendToLogin();
+                mAuth.signOut();
+                sendToLogin();
+            } else {
+                Toast.makeText(this, "Ви не зареєстровані", Toast.LENGTH_SHORT).show();
+            }
         }
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);

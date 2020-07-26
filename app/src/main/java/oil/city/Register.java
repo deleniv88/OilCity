@@ -65,7 +65,7 @@ public class Register extends AppCompatActivity {
                 final String confPass = userConfPass.getText().toString();
 
                 if (email.isEmpty() || name.isEmpty() || pass.isEmpty() || !pass.equals(confPass)) {
-                    showMessage("Please verify all fields");
+                    showMessage("Заповніть всі поля");
                     register.setVisibility(View.VISIBLE);
                 } else {
                     CreateUserAccount(email, name, pass);
@@ -125,7 +125,7 @@ public class Register extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            showMessage("Register complite");
+                                            showMessage("Реєстрацію завершено");
                                             updateUI();
                                         }
                                     }
@@ -146,7 +146,7 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            showMessage("Register complite");
+                            showMessage("Реєстрацію завершено");
                             updateUI();
                         }
                     }

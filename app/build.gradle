@@ -9,8 +9,8 @@ android {
         applicationId "oil.city"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 10
-        versionName "1.0"
+        versionCode 13
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -72,7 +72,7 @@ dependencies {
     implementation 'ir.sohreco.circularpulsingbutton:circular-pulsing-button:1.0.0'
     //кругла пульсуюча кнопка
 
-    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0' //circular image
     implementation 'com.mikhaellopez:circularimageview:3.2.0'//circular image
 
@@ -83,6 +83,10 @@ dependencies {
     //for snow
     implementation 'com.github.jetradarmobile:android-snowfall:1.2.0'
 
+    //fab menu
+    implementation 'com.github.clans:fab:1.6.4'
+
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
 }

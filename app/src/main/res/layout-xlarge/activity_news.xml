@@ -39,9 +39,27 @@
                         android:id="@+id/img_news"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        app:layout_collapseMode="parallax"
                         />
+
+                    <ImageView
+                        android:id="@+id/image_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_share_black_24dp"
+                        android:tint="@android:color/white"
+                        android:layout_gravity="bottom|left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:backgroundTint="@color/ColorTra0"/>
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:title="News name"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:popupTheme="@style/Theme.AppCompat.Light"
+                        app:layout_collapseMode="parallax"/>
+
 
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
             </com.google.android.material.appbar.AppBarLayout>
@@ -52,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -153,6 +170,94 @@
 
                                 </RelativeLayout>
 
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img2"></ImageView>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img3"></ImageView>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img4"></ImageView>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img5"></ImageView>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img6"></ImageView>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img7"></ImageView>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img8"></ImageView>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="300dp"
+                                        android:layout_height="300dp"
+                                        android:id="@+id/img9"></ImageView>
+
+                                </RelativeLayout>
+
                             </LinearLayout>
 
 
@@ -178,7 +283,6 @@
             app:itemIconTint="@android:color/white"
             app:menu="@menu/drawer" />
     </androidx.drawerlayout.widget.DrawerLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

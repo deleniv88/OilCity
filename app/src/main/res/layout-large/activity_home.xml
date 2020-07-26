@@ -30,16 +30,17 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    android:src="@drawable/gerbvsoil">
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/gerbvsoil1387">
                 </ImageView>
 
                 <TextView
-                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/txtBoryslav"
                     android:textStyle="normal"
+                    android:layout_alignParentBottom="true"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:textAlignment="textStart"
@@ -56,16 +57,16 @@
                 android:id="@+id/backgroundBuilding"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:alpha="0.3"
                 android:background="@drawable/backg_rec"
                 android:backgroundTint="@android:color/white"
                 android:orientation="vertical"></LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_centerInParent="true"
                 android:layout_above="@+id/borderBottom"
                 android:layout_below="@+id/boryslavTop"
@@ -82,27 +83,30 @@
                 android:layout_height="3dp"
                 android:orientation="horizontal">
 
-                <!--        <View-->
-                <!--            android:layout_centerInParent="true"-->
-                <!--            android:layout_alignParentBottom="true"-->
-                <!--            android:orientation="horizontal"-->
-                <!--            android:layout_gravity="center_horizontal"-->
-                <!--            android:layout_marginRight="50dp"-->
-                <!--            android:layout_width="match_parent"-->
-                <!--            android:layout_height="3dp"-->
-                <!--            android:background="@android:color/white">-->
-                <!--        </View>-->
+                <!--                    <View-->
+                <!--                        android:layout_centerInParent="true"-->
+                <!--                        android:layout_alignParentBottom="true"-->
+                <!--                        android:orientation="horizontal"-->
+                <!--                        android:layout_gravity="center_horizontal"-->
+                <!--                        android:layout_marginRight="20dp"-->
+                <!--                        android:layout_marginLeft="20dp"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="3dp"-->
+                <!--                        android:background="@android:color/white">-->
+                <!--                    </View>-->
 
             </RelativeLayout>
 
-            <HorizontalScrollView
+            <LinearLayout
+                android:padding="5dp"
+                android:background="@color/ColorTra"
+                android:gravity="center"
                 android:id="@+id/horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
+                android:orientation="horizontal"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp">
+                >
 
 
                 <LinearLayout
@@ -110,173 +114,174 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/linear"
                     android:orientation="horizontal">
-                    <RelativeLayout
-                        android:gravity="center"
-                        android:background="@drawable/background_icons"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:id="@+id/PhotoAdmin"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/city_hall"></ImageView>
-
-                        <TextView
-                            android:layout_centerInParent="true"
-                            android:layout_below="@+id/PhotoAdmin"
-                            android:id="@+id/txtAdmin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Держ.заклади та ін."
-                            android:textSize="8sp"
-                            android:textColor="@android:color/black">
-                        </TextView>
-
-                    </RelativeLayout>
 
                     <RelativeLayout
                         android:gravity="center"
-                        android:background="@drawable/backg_icons2"
                         android:layout_marginRight="10dp"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_centerInParent="true"
-                            android:id="@+id/PhotoEvents"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:src="@drawable/folded_newspaper">
-                        </ImageView>
-
-                        <TextView
-                            android:layout_below="@+id/PhotoEvents"
-                            android:layout_centerInParent="true"
-                            android:id="@+id/txtEvents"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Новини"
-                            android:textSize="9sp"
-                            android:textColor="@android:color/black">
-                        </TextView>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:background="@drawable/backg_icons3"
-                        android:gravity="center"
-                        android:layout_marginRight="10dp"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:id="@+id/PhotoNews"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/calendar">
-                        </ImageView>
-
-                        <TextView
-                            android:layout_below="@+id/PhotoNews"
-                            android:layout_centerInParent="true"
-                            android:id="@+id/txtNews"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Події"
-                            android:textSize="9sp"
-                            android:textColor="@android:color/black">
-                        </TextView>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:gravity="center"
-                        android:background="@drawable/backg_icons4"
-                        android:layout_marginRight="10dp"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
+                        android:layout_width="50dp"
+                        android:layout_height="40dp">
 
                         <ImageView
                             android:layout_centerInParent="true"
                             android:id="@+id/PhotoRelax"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:src="@drawable/smile">
                         </ImageView>
 
-                        <TextView
-                            android:layout_centerInParent="true"
-                            android:layout_below="@+id/PhotoRelax"
-                            android:id="@+id/txtRelax"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Дозвілля"
-                            android:textSize="9sp"
-                            android:textColor="@android:color/black">
-                        </TextView>
+                        <!--                <TextView-->
+                        <!--                    android:layout_centerInParent="true"-->
+                        <!--                    android:layout_below="@+id/PhotoRelax"-->
+                        <!--                    android:id="@+id/txtRelax"-->
+                        <!--                    android:layout_width="wrap_content"-->
+                        <!--                    android:layout_height="wrap_content"-->
+                        <!--                    android:text="Дозвілля"-->
+                        <!--                    android:textSize="9sp"-->
+                        <!--                    android:textColor="@android:color/black">-->
+                        <!--                </TextView>-->
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:background="@drawable/backg_icons6"
                         android:gravity="center"
                         android:layout_marginRight="10dp"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
+                        android:layout_width="50dp"
+                        android:layout_height="40dp">
+
+                        <ImageView
+                            android:layout_centerInParent="true"
+                            android:id="@+id/PhotoEvents"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/folded_newspaper">
+                        </ImageView>
+
+                        <!--                <TextView-->
+                        <!--                    android:layout_below="@+id/PhotoEvents"-->
+                        <!--                    android:layout_centerInParent="true"-->
+                        <!--                    android:id="@+id/txtEvents"-->
+                        <!--                    android:layout_width="wrap_content"-->
+                        <!--                    android:layout_height="wrap_content"-->
+                        <!--                    android:text="Новини"-->
+                        <!--                    android:textSize="9sp"-->
+                        <!--                    android:textColor="@android:color/black">-->
+                        <!--                </TextView>-->
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp">
+
+                        <ImageView
+                            android:id="@+id/PhotoNews"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/calendar">
+                        </ImageView>
+
+                        <!--                <TextView-->
+                        <!--                    android:layout_below="@+id/PhotoNews"-->
+                        <!--                    android:layout_centerInParent="true"-->
+                        <!--                    android:id="@+id/txtNews"-->
+                        <!--                    android:layout_width="wrap_content"-->
+                        <!--                    android:layout_height="wrap_content"-->
+                        <!--                    android:text="Події"-->
+                        <!--                    android:textSize="9sp"-->
+                        <!--                    android:textColor="@android:color/black">-->
+                        <!--                </TextView>-->
+                    </RelativeLayout>
+
+                    <RelativeLayout
+
+                        android:gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp">
 
                         <ImageView
                             android:layout_centerInParent="true"
                             android:id="@+id/PhotoBus"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:src="@drawable/bus">
                         </ImageView>
 
-                        <TextView
-                            android:layout_centerInParent="true"
-                            android:layout_below="@+id/PhotoBus"
-                            android:id="@+id/txtBus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Транспорт"
-                            android:textSize="9sp"
-                            android:textColor="@android:color/black">
-                        </TextView>
+                        <!--                <TextView-->
+                        <!--                    android:layout_centerInParent="true"-->
+                        <!--                    android:layout_below="@+id/PhotoBus"-->
+                        <!--                    android:id="@+id/txtBus"-->
+                        <!--                    android:layout_width="wrap_content"-->
+                        <!--                    android:layout_height="wrap_content"-->
+                        <!--                    android:text="Транспорт"-->
+                        <!--                    android:textSize="9sp"-->
+                        <!--                    android:textColor="@android:color/black">-->
+                        <!--                </TextView>-->
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:background="@drawable/backg_icons5"
+
                         android:gravity="center"
                         android:layout_marginRight="10dp"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
+                        android:layout_width="50dp"
+                        android:layout_height="40dp">
 
                         <ImageView
                             android:layout_centerInParent="true"
                             android:id="@+id/PhotoFlat"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:src="@drawable/flat">
                         </ImageView>
 
-                        <TextView
+                        <!--                <TextView-->
+                        <!--                    android:layout_centerInParent="true"-->
+                        <!--                    android:layout_below="@+id/PhotoFlat"-->
+                        <!--                    android:id="@+id/txtFlat"-->
+                        <!--                    android:layout_width="wrap_content"-->
+                        <!--                    android:layout_height="wrap_content"-->
+                        <!--                    android:text="Комуналка"-->
+                        <!--                    android:textSize="9sp"-->
+                        <!--                    android:textColor="@android:color/black">-->
+                        <!--                </TextView>-->
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp">
+
+                        <ImageView
+                            android:id="@+id/PhotoAdmin"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerInParent="true"
-                            android:layout_below="@+id/PhotoFlat"
-                            android:id="@+id/txtFlat"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Комуналка"
-                            android:textSize="9sp"
-                            android:textColor="@android:color/black">
-                        </TextView>
+                            android:src="@drawable/city_hall"></ImageView>
+
+                        <!--                <TextView-->
+                        <!--                    android:layout_centerInParent="true"-->
+                        <!--                    android:layout_below="@+id/PhotoAdmin"-->
+                        <!--                    android:id="@+id/txtAdmin"-->
+                        <!--                    android:layout_width="wrap_content"-->
+                        <!--                    android:layout_height="wrap_content"-->
+                        <!--                    android:text="Держ.заклади та ін."-->
+                        <!--                    android:gravity="center"-->
+                        <!--                    android:textSize="6sp"-->
+                        <!--                    android:textColor="@android:color/white">-->
+                        <!--                </TextView>-->
+
                     </RelativeLayout>
 
                 </LinearLayout>
 
 
-            </HorizontalScrollView>
+
+
+            </LinearLayout>
+
+
 
         </RelativeLayout>
 
@@ -297,7 +302,7 @@
         <!--            app:snowflakesNum="250">-->
 
         <!--        </com.jetradarmobile.snowfall.SnowfallView>-->
-        +
+
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"

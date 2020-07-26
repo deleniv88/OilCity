@@ -2,7 +2,6 @@ package oil.city.Model;
 
 public class RatingRest {
 
-
     private String userName;
     private String restorauntId;
     public String rateValue;
